@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # encoding=utf-8
+# maintainer: rgaudin
 
 """  Ethiopian Calendar tool for Python 2.6
 
@@ -26,9 +27,14 @@ import datetime
 
 class EthiopianDateConverter(object):
 
+    """ Class methods for converting between Ethiopian and Gregorian """
+
     @classmethod
-    def start_day_of_ethiopian(cls, year):
-        """ returns first day of that Ethiopian year """
+    def _start_day_of_ethiopian(cls, year):
+        """ returns first day of that Ethiopian year 
+
+        Params:
+        * year: an int """
 
         # magic formula gives start of year
         new_year_day = (year / 100) - (year / 400) - 4
@@ -40,8 +46,35 @@ class EthiopianDateConverter(object):
         return new_year_day
 
     @classmethod
+    def date_to_gregorian(cls, adate):
+        """ Gregorian date object representation of provided Ethiopian date
+
+        Shortcut to to_gregorian() classmethod using a date parameter
+
+        Params:
+        * adate: date object """
+
+        return cls.to_gregorian(adate.year, adate.month, adate.date)
+
+    @classmethod
+    def date_to_ethiopian(cls, adate):
+        """ Ethiopian date object representation of provided Gregorian date
+
+        Shortcut to to_ethiopian() classmethod using a date parameter
+
+        Params:
+        * adate: date object """
+
+        return cls.to_ethiopian(adate.year, adate.month, adate.date)
+
+    @classmethod
     def to_gregorian(cls, year, month, date):
-        """ Gregorian date object representation of provided Ethiopian date """
+        """ Gregorian date object representation of provided Ethiopian date
+
+        Params:
+        * year: an int
+        * month: an int
+        * date: an int """
 
         # prevent incorect input
         inputs = (year, month, date)
@@ -49,7 +82,7 @@ class EthiopianDateConverter(object):
             raise ValueError("Malformed input can't be converted.")
 
         # Ethiopian new year in Gregorian calendar
-        new_year_day = cls.start_day_of_ethiopian(year)
+        new_year_day = cls._start_day_of_ethiopian(year)
 
         # September (Ethiopian) sees 7y difference
         gregorian_year = year + 7
@@ -101,7 +134,12 @@ class EthiopianDateConverter(object):
 
     @classmethod
     def to_ethiopian(cls, year, month, date):
-        """ Ethiopian date object representation of provided Gregorian date """
+        """ Ethiopian date object representation of provided Gregorian date
+
+        Params:
+        * year: an int
+        * month: an int
+        * date: an int """
 
         # prevent incorect input
         inputs = (year, month, date)
@@ -138,7 +176,7 @@ class EthiopianDateConverter(object):
             ethiopian_months[10] = 5
 
         # Ethiopian new year in Gregorian calendar
-        new_year_day = cls.start_day_of_ethiopian(year - 8)
+        new_year_day = cls._start_day_of_ethiopian(year - 8)
 
         # calculate number of days up to that date
         until = 0
