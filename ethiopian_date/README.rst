@@ -13,3 +13,8 @@ Installation
 
     pip install ethiopian_date
 
+Resources
+---------
+
+ * http://www.funaba.org/en/calendar-conversion.cgi
+ * http://www.senamirmir.org/projects/
