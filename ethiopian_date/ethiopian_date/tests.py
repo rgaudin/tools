@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # encoding=utf-8
+# maintainer: rgaudin
 
 import unittest
 from datetime import date
