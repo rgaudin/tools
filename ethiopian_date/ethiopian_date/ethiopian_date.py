@@ -54,7 +54,7 @@ class EthiopianDateConverter(object):
         Params:
         * adate: date object """
 
-        return cls.to_gregorian(adate.year, adate.month, adate.date)
+        return cls.to_gregorian(adate.year, adate.month, adate.day)
 
     @classmethod
     def date_to_ethiopian(cls, adate):
@@ -65,7 +65,7 @@ class EthiopianDateConverter(object):
         Params:
         * adate: date object """
 
-        return cls.to_ethiopian(adate.year, adate.month, adate.date)
+        return cls.to_ethiopian(adate.year, adate.month, adate.day)
 
     @classmethod
     def to_gregorian(cls, year, month, date):
