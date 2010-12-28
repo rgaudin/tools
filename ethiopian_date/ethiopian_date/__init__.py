@@ -13,7 +13,7 @@ ethi_date = EthiopianDateConverter.date_to_ethiopian(datetime.date.today())
 
 """
 
-VERSION = (0, 1, 0)
+VERSION = (0, 1, 1)
 
 
 def get_version():
