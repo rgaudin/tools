@@ -225,4 +225,4 @@ class EthiopianDateConverter(object):
         order = [0, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4]
         ethiopian_month = order[m]
 
-        return ethiopian_year, ethiopian_month, ethiopian_date
+        return datetime.date(ethiopian_year, ethiopian_month, ethiopian_date)
