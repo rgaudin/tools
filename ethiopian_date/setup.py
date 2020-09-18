@@ -8,7 +8,7 @@ import setuptools
 
 setuptools.setup(
     name='ethiopian_date',
-    version='0.2',
+    version='1.0',
     license='GNU General Public License (GPL), Version 3',
 
     provides=['ethiopian_date'],
