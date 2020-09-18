@@ -2,11 +2,13 @@
 # encoding=utf-8
 # maintainer: rgaudin
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 import setuptools
 
 setuptools.setup(
     name='ethiopian_date',
-    version=__import__('ethiopian_date').__version__,
+    version='0.2',
     license='GNU General Public License (GPL), Version 3',
 
     provides=['ethiopian_date'],
@@ -17,6 +19,10 @@ setuptools.setup(
     url='http://github.com/rgaudin/tools',
 
     packages=['ethiopian_date'],
+
+    install_requires=[
+        'six>=1.11.0',
+    ],
 
     classifiers=[
         'Development Status :: 4 - Beta',
