@@ -22,7 +22,11 @@ You should have received a copy of the GNU General Public License
 along with Foobar; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA """
 
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import unicode_literals
 import datetime
+from six.moves import range
 
 
 class EthiopianDateConverter(object):
@@ -31,13 +35,13 @@ class EthiopianDateConverter(object):
 
     @classmethod
     def _start_day_of_ethiopian(cls, year):
-        """ returns first day of that Ethiopian year 
+        """ returns first day of that Ethiopian year
 
         Params:
         * year: an int """
 
         # magic formula gives start of year
-        new_year_day = (year / 100) - (year / 400) - 4
+        new_year_day = (year // 100) - (year // 400) - 4
 
         # if the prev ethiopian year is a leap year, new-year occrus on 12th
         if (year - 1) % 4 == 3:
@@ -134,7 +138,7 @@ class EthiopianDateConverter(object):
 
     @classmethod
     def to_ethiopian(cls, year, month, date):
-        """ Ethiopian date object representation of provided Gregorian date
+        """ Ethiopian date string representation of provided Gregorian date
 
         Params:
         * year: an int
@@ -221,4 +225,4 @@ class EthiopianDateConverter(object):
         order = [0, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4]
         ethiopian_month = order[m]
 
-        return datetime.date(ethiopian_year, ethiopian_month, ethiopian_date)
+        return ethiopian_year, ethiopian_month, ethiopian_date
